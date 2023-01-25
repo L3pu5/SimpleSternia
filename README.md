@@ -126,10 +126,10 @@ The following CosmicFire has been provided as an example.
     [[^(?<ATTACKER>\w+) allow an infinitesimally small mote of cosmic fire to manifest and direct it at (?<VICTIM>\w+). Cosmic fire blasts forth, dissolving \w+ flesh in a sparkling current of energy\.$]]
 
     SECONDPERSON (you receive)
-    [[^(?<ATTACKER>\w+) raises a palm which glows with a tiny pinpoint of light. The light turns into a sparkling current of energy that slams into (?<VICTIM>\w+), dissolving *(?his|her)* flesh\.$]]
+    [[^(?<ATTACKER>\w+) raises a palm which glows with a tiny pinpoint of light. The light turns into a sparkling current of energy that slams into (?<VICTIM>\w+), dissolving yourflesh\.$]]
 
     THIRD PERSON (you observe)
-    [[^(?<ATTACKER>\w+) raises a palm which glows with a tiny pinpoint of light. The light turns into a sparkling current of energy that slams into (?<VICTIM>\w+), dissolving *your* flesh\.$]]
+    [[^(?<ATTACKER>\w+) raises a palm which glows with a tiny pinpoint of light. The light turns into a sparkling current of energy that slams into (?<VICTIM>\w+), dissolving (his|her) flesh\.$]]
 
 ## Ability Naming Convention
 Where appropriate, keep the skillset name true to the original AB. Some skills will need to be broken up to be distinguished from one another. For instance, in the case of Tarot Soulless, it should be broken into...

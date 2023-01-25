@@ -26,7 +26,7 @@ By default the program should just install itself. If you wish to uninstall the 
 Then you can remove the package via the package manager.
 
 ## Initailising
-By default, the program will initialise when installed via the improted script file. Major updates must be imported as new packages.
+By default, the program will initialise when installed via the imported script file. Major updates must be imported as new packages.
 
 ## Updating the Lines
 You can call the following two aliases from the command line:
@@ -48,6 +48,7 @@ The two configuration variables 'SimpleSternia.Config.Format' and 'SimpleSternia
      'ABILITY'    := The name of the ability used.
      'SKILLSET'   := The skillset the ability belongs to.
      'VICTIM'     := The recipient of the attack or 'you'.
+     'LIMB'       := The limb if given, otherwise ""
      All other elements are echo'd literally
      this allows you to control colour with <green>ATTACKER<yellow>  to make attacker green and the following yellow.
      At this time, SimpleSternia does not intend to gag melds.
@@ -156,10 +157,14 @@ Finally, in the file the entry should be representated as the following dataclas
 
     {
         ...
-        --Tarot
-        ["Tarot"] ={
-            {"Lust",}
+        --Cosmic
+        ["Cosmic"] = {
+        {"CosmicFire", 
+                [[^(?<ATTACKER>\w+) allow an infinitesimally small mote of cosmic fire to manifest and direct it at (?<VICTIM>\w+). Cosmic fire blasts forth, dissolving \w+ flesh in a sparkling current of energy\.$]],
+                [[^(?<ATTACKER>\w+) raises a palm which glows with a tiny pinpoint of light. The light turns into a sparkling current of energy that slams into (?<VICTIM>\w+), dissolving (his|her) flesh\.$]],
+                [[^(?<ATTACKER>\w+) raises a palm which glows with a tiny pinpoint of light. The light turns into a sparkling current of energy that slams into (?<VICTIM>\w+), dissolving your flesh\.$]],
         }
+        },
         ...
     }
     

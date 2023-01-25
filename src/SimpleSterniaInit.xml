@@ -27,6 +27,7 @@ SimpleSternia.Config = {};
     -- 'ABILITY'    := The name of the ability used.
     -- 'SKILLSET'   := The skillset the ability belongs to.
     -- 'VICTIM'     := The recipient of the attack or 'you'.
+    -- 'LIMB'       := The limb if given, otherwise ""
     -- All other elements are echo'd literally
     -- this allows you to control colour with &lt;green&gt;ATTACKER&lt;yellow&gt;  to make attacker green and the following yellow.
     -- At this time, SimpleSternia does not intend to gag melds.

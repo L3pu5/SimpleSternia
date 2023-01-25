@@ -10,7 +10,7 @@
 SimpleSternia.Lines = {
     -- Generic
     -- Knighthood
-    ["Knighthood"] = {}
+    ["Knighthood"] = {},
     -- Mage
         --Aquamancy
         --Geomancy
@@ -68,7 +68,7 @@ SimpleSternia.Lines = {
             [[^(?<ATTACKER>\w+) give yourself wholly unto the Light, and feel a divine presence fill you from brow to feet. As you are lifted off the ground, you turn slowly in utter ecstasy as the presence of the Supernals fill you with power and joy\.$]],
             nil,
             [[^(?<ATTACKER>\w+) stretches \w+ arms out to either side and drops \w+ head back with \w+ eyes closed. A blinding white light strikes \w+ on the forehead and travels to \w+ feet, lifting \w+ off the ground. As \w+ slowly turns, all \w+ wounds heal and a blazing aura pulsates around \w+\.$]],
-        }
+        },
 
     },
         -- Aeonics

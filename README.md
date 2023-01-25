@@ -15,7 +15,6 @@ Download the .mpackage file and drag and drop it into mudlet. You can additional
 
 ## Note
 This code uses named matches and thus requires mudlet 4.11+.
-Mudlet: Drag and drop the SimpleSternia package into mudlet or run lua installPackage"http://"
 
 # Usage
 
@@ -62,7 +61,7 @@ The two configuration variables 'SimpleSternia.Config.Format' and 'SimpleSternia
 This is the variable for a single person targetting another with an ability. This uses a VICTIM variable.
 
     ATTACKER USES <SKILLSET>!!ABILITY!! ---> VICTIM\n
-    Keegan  uses <Aeonics>!!Timewarp!! ---> you.
+    Keegan uses <Aeonics>!!Timewarp!! ---> you.
 
     ATTACKER USES SKILLSET ABILITY on VICTIM.\n
     Keegan uses Aeonics Timewarp on Alice.

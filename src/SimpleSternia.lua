@@ -8,9 +8,10 @@ SimpleSternia.MetaData.Contact = "lepus@lepus.site";
 SimpleSternia.MetaData.GithubRepo = "https://github.com/L3pu5/SimpleSternia";
 
 SimpleSternia.Init = function ()
+    SimpleSternia.CreateUpdateAlias();
     SimpleSternia.CleanUp();
     SimpleSternia.CreateAllSkillsets();
-    if not SimpleSternia.Config.Quiet then 
+    if not SimpleSternia.Config.Quiet or silent then 
         echo("SimpleSternia v" ..SimpleSternia.MetaData.Version.." by "..SimpleSternia.MetaData.Credits.. " is initialised. Thank you for using SimpleSternia.\n");
         echo("For all questions, queries, and concerns, please contact " ..  SimpleSternia.MetaData.Contact .. " or see " .. SimpleSternia.MetaData.GithubRepo.."\n");
     end
@@ -65,7 +66,7 @@ SimpleSternia.Abilities = {};
 
 --TempTrigger Dictionary
 SimpleSternia.TempTriggers = {};
-
+SimpleSternia.TempAliases = {};
 
 -- Build all the skillsets in the Lines
 SimpleSternia.CreateAllSkillsets = function() 
@@ -75,13 +76,22 @@ SimpleSternia.CreateAllSkillsets = function()
 end
 
 SimpleSternia.CreateUpdateAlias = function()
+    if SimpleSternia.TempAliases[0] then
+        killAlias(SimpleSternia.TempAliases[0]);
+        killAlias(SimpleSternia.TempAliases[1]);
+    end
+    SimpleSternia.TempAliases[0] = tempAlias("^SimpleSterniaInit$", function () SimpleSternia.Init() end )
+    SimpleSternia.TempAliases[1] = tempAlias("^SimpleSterniaUpdate$", function () SimpleSternia.UpdateLines() end )
 end
 
 SimpleSternia.UpdateLines = function() 
     if not SimpleSternia.Config.Quiet then
         echo("Fetching Lines from " .. SimpleSternia.MetaData.GithubRepo.. ".\n");
     end
-    downloadFile(getMudletHomeDir().. "/SimpleSternia/SimpleSterniaLines.lua", )
+    downloadFile(getMudletHomeDir().. "/SimpleSternia/SimpleSterniaLines.lua", "https://raw.githubusercontent.com/L3pu5/SimpleSternia/main/src/SimpleSterniaLines.lua");
+    if not SimpleSternia.Config.Quiet then
+        echo("Lines have been updated! Re-initalise with 'SimpleSterniaInit'");
+    end
 end
 
 -- Build all the abilities in the class

@@ -5,9 +5,15 @@ Simple PVP trigger wrapper for Lusternia for Mudlet
 Mudlet
 
 # Installation
+## Mudlet one-liner
+Copy and paste the following code into your mudlet command line
+    
+
 ## Note
 This code uses named matches and thus requires mudlet 4.11+.
 Mudlet: Drag and drop the SimpleSternia package into mudlet or run lua installPackage"http://"
+
+
 
 # Contributing lines
 

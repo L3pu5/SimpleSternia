@@ -99,4 +99,4 @@ SimpleSternia.BakeAbility = function(skillsetName, abilityName, matches)
       template = template:gsub("SKILLSET", skillsetName);
     end
     echo(template);
-end
+end 

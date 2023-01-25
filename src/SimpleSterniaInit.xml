@@ -17,6 +17,8 @@ SimpleSternia.Config = {};
     SimpleSternia.Config.Quiet = false;
     --Hide Original FlavourText/Delete the original attack line
     SimpleSternia.Config.HideFlavourText = true;
+    -- FeedTriggers instead of echoing
+    SimpleSternia.Config.FeedTriggers = false;
 
     --Default Format
     -- Note config uses the following context words:

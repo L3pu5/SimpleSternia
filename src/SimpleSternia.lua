@@ -8,8 +8,8 @@ SimpleSternia.MetaData.Contact = "lepus@lepus.site";
 SimpleSternia.MetaData.GithubRepo = "https://github.com/L3pu5/SimpleSternia";
 
 SimpleSternia.Init = function ()
-    SimpleSternia.CreateUpdateAlias();
     SimpleSternia.CleanUp();
+    SimpleSternia.CreateUpdateAlias();
     SimpleSternia.CreateAllSkillsets();
     if not SimpleSternia.Config.Quiet or silent then 
         echo("SimpleSternia v" ..SimpleSternia.MetaData.Version.." by "..SimpleSternia.MetaData.Credits.. " is initialised. Thank you for using SimpleSternia.\n");
@@ -36,6 +36,8 @@ SimpleSternia.Config = {};
     SimpleSternia.Config.SecondPerson = true;
     --Show Third Person
     SimpleSternia.Config.ThirdPerson = true;
+    -- FeedTriggers instead of echoing
+    SimpleSternia.Config.FeedTriggers = false;
     --Hide Original FlavourText/Delete the original attack line
     SimpleSternia.Config.HideFlavourText = true;
     --Default Format
@@ -105,20 +107,21 @@ end
 -- This bakes the selected DefaultFormat into the ability.
 SimpleSternia.CreateAbility = function(skillSet, abilityName, firstPerson, secondPerson, thirdPerson) 
 
-    
-    firstPersonTrigger =    tempRegexTrigger(firstPerson, function() SimpleSternia.ProcessTrigger(skillSet, abilityName, matches) end);
-    secondPersonTrigger =   tempRegexTrigger(secondPerson, function() SimpleSternia.ProcessTrigger(skillSet, abilityName, matches) end);
-    thirdPersonTrigger =    tempRegexTrigger(thirdPerson, function() SimpleSternia.ProcessTrigger(skillSet, abilityName, matches) end);
-
+    if firstPerson ~= nil then
+        firstPersonTrigger =    tempRegexTrigger(firstPerson, function() SimpleSternia.ProcessTrigger(skillSet, abilityName, matches) end);
+    end
+    if secondPerson ~= nil then
+        secondPersonTrigger =   tempRegexTrigger(secondPerson, function() SimpleSternia.ProcessTrigger(skillSet, abilityName, matches) end);
+    end
+    if thirdPerson ~= nil then
+        thirdPersonTrigger =    tempRegexTrigger(thirdPerson, function() SimpleSternia.ProcessTrigger(skillSet, abilityName, matches) end);
+    end 
     SimpleSternia.TempTriggers[firstPersonTrigger] = true; 
     SimpleSternia.TempTriggers[secondPersonTrigger] = true; 
     SimpleSternia.TempTriggers[thirdPersonTrigger] = true; 
 end
 
 SimpleSternia.ProcessTrigger = function(skillSet, abilityName, matches)
-    if SimpleSternia.Config.HideFlavourText == true then
-        deleteLine()
-    end
     SimpleSternia.BakeAbility(skillSet, abilityName, matches)
 end
 
@@ -141,9 +144,23 @@ SimpleSternia.BakeAbility = function(skillsetName, abilityName, matches)
     if string.find(template, "ABILITY") then
       template = template:gsub("ABILITY", abilityName);
     end
+    --LIMB
+    if string.find(template, "LIMB") then
+        if matches.LIMB then 
+            template = template:gsub("LIMB", matches.LIMB);
+        else
+            template = template:gsub("LIMB", "");
+        end
+    end
     --SKILLSET
     if string.find(template, "SKILLSET") then
       template = template:gsub("SKILLSET", skillsetName);
     end
-    echo(template);
+    if SimpleSternia.Config.HideFlavourText == true and SimpleSternia.Config.FeedTriggers == false then
+        replaceLine(template);
+    elseif SimpleSternia.Config.HideFlavourText == true and SimpleSternia.Config.FeedTriggers == true then
+        feedTriggers(template);
+    else
+        echo(template);
+    end
 end 

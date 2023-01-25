@@ -134,11 +134,12 @@ SimpleSternia.BakeAbility = function(skillsetName, abilityName, matches)
     else
         template = SimpleSternia.Config.NoVictimFormat;
     end
-    template = template:gsub("ATTACKER", matches.ATTACKER);
     if matches.ATTACKER == "You" or matches.ATTACKER == "you" then
         template = template:gsub("USES", "use")
+        template = template:gsub("ATTACKER", "You");
     else
         template = template:gsub("USES", "uses")
+        template = template:gsub("ATTACKER", matches.ATTACKER);
     end;
     --ABILITY
     if string.find(template, "ABILITY") then

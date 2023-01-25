@@ -43,12 +43,12 @@ SimpleSternia.Lines = {
             [[^(?<ATTACKER>\w+) hold your weapon up in the air, calling forth power. A moment later, holy energy shines from within the weapon, piercing the shadows with effulgent light\.$]],
             nil,
             [[^(?<ATTACKER>\w+) holds \w+ weapon up in the air. A moment later, holy energy shines from within the weapon, piercing the shadows with effulgent light.$]],
-        }
+        },
         {"HallowedGround",
             [[^With a whispered prayer and a delicate twist of your outstretched hand, (?<ATTACKER>\w+) send globes of light flying in each direction\.$]],
             nil,
             [[^Muttering prayers to \w+, (?<ATTACKER>\w+) slowly raises \w+ arms up from \w+ sides towards the heavens, and, as \w+ \w+ so, bright rays of holy light rise up from the ground\.$]],
-        }
+        },
         {"Heretic",
             [[^(?<ATTACKER>\w+) brand (?<VICTIM>\w+) a heretic for \w+ crimes against the Light\.$]],
             [[^(?<ATTACKER>\w+) brands (?<VICTIM>\w+) a heretic for your crimes against the Light\.$]],
@@ -68,7 +68,7 @@ SimpleSternia.Lines = {
             [[^(?<ATTACKER>\w+) give yourself wholly unto the Light, and feel a divine presence fill you from brow to feet. As you are lifted off the ground, you turn slowly in utter ecstasy as the presence of the Supernals fill you with power and joy\.$]],
             nil,
             [[^(?<ATTACKER>\w+) stretches \w+ arms out to either side and drops \w+ head back with \w+ eyes closed. A blinding white light strikes \w+ on the forehead and travels to \w+ feet, lifting \w+ off the ground. As \w+ slowly turns, all \w+ wounds heal and a blazing aura pulsates around \w+\.$]],
-        }
+        },
 
     },
         -- Aeonics

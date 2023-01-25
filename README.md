@@ -75,8 +75,9 @@ This is the variable for a single person using an ability without an explicit ta
 # Contributing lines
 
 ## General Format
-All lines must follow the following format in the lines.lua file:
-{SKILLSET, ABILITY, FIRSTPERSON, SECONDPERSON, THIRDPERSON}
+All lines must follow the following format in the SimpleSterniaLines.lua file:
+{ABILITY, FIRSTPERSON, SECONDPERSON, THIRDPERSON} 
+This must be an entry in a table for the name of the Skillset.
 
 ## Skillset Conventions
 For overlapping skills, the skillset should be an intermediate. For instance, all mages should use the same staffcast. This should belong to the 'Mage' class. Meanwhile, the attacks specific to aquamancy, etc should belong to their specific skillsets. 

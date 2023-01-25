@@ -36,6 +36,9 @@ You can call the following two aliases from the command line:
 
 \* NB: SimpleSterniaUpdate pulls from this github repo's raw to overwrite the SimpleSterniaLines.lua file.
 
+# Special Thanks
+Special thanks to Sylaria for helping with the Sacraments/Axelord lines.
+
 # Configuration
 You can change the configuration for SimpleSternia by changing the imported Script asset in mudlet. The toggles should be self-explanatory.
 

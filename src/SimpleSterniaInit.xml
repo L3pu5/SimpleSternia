@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MudletPackage>
+<MudletPackage version="1.001">
+	<ScriptPackage>
+		<Script isActive="yes" isFolder="no">
+			<name>SimpleSternia</name>
+			<packageName></packageName>
+			<script>-- Load Libraries
+dofile(getMudletHomeDir().."/SimpleSternia/SimpleSternia.lua")
+dofile(getMudletHomeDir().."/SimpleSternia/SimpleSterniaLines.lua")
+-- Initialise SimpleSternia
+SimpleSternia.Init();
+
+-- Configuration
+SimpleSternia.Config = {};
+    --Do not show messages from SimpleSternia on startup, etc
+    SimpleSternia.Config.Quiet = false;
+    --Hide Original FlavourText/Delete the original attack line
+    SimpleSternia.Config.HideFlavourText = true;
+
+    --Default Format
+    -- Note config uses the following context words:
+    -- 'ATTACKER'   := The name of the attack user or 'you'
+    -- 'USES'       := uses/use as gramatically appropriate
+    -- 'ABILITY'    := The name of the ability used.
+    -- 'SKILLSET'   := The skillset the ability belongs to.
+    -- 'VICTIM'     := The recipient of the attack or 'you'.
+    -- All other elements are echo'd literally
+    -- this allows you to control colour with &lt;green&gt;ATTACKER&lt;yellow&gt;  to make attacker green and the following yellow.
+    -- At this time, SimpleSternia does not intend to gag melds.
+    -- Example formats:
+    -- ATTACKER USES ABILITY on VICTIM
+    -- ATTACKER USES SKILLSET:ABILITY on VICTIM
+    -- ATTACKER ABILITY(SKILLET) -&gt; VICTIM
+    -- A NEWLINE is not appended by SimpleSternia. You must append this yourself.
+    
+    SimpleSternia.Config.DefaultFormat =      "ATTACKER USES ABILITY on VICTIM.\n";
+    SimpleSternia.Config.DefaultVerboseFormat = "ATTACKER USES SKILLSET:ABILITY on VICTIM.\n";
+    SimpleSternia.Config.DefaultNoVictimFormat =   "ATTACKER USES ABILITY.\n";
+    
+        --Format for the Lines to be displayed, see below:
+        --Single Targetted Ability
+    SimpleSternia.Config.Format = SimpleSternia.Config.DefaultFormat;
+        --No Target of used ability
+    SimpleSternia.Config.NoVictimFormat = SimpleSternia.Config.DefaultNoVictimFormat;</script>
+			<eventHandlerList />
+		</Script>
+	</ScriptPackage>
+</MudletPackage>

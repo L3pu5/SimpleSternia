@@ -1,8 +1,34 @@
 --Data
 if not SimpleSternia then SimpleSternia = {} end;
+--MetaData
+SimpleSternia.MetaData = {};
+SimpleSternia.MetaData.Version = "0.0.1 - Little Bunny";
+SimpleSternia.MetaData.Credits = "L3Pu5 Hare";
+SimpleSternia.MetaData.Contact = "lepus@lepus.site";
+SimpleSternia.MetaData.GithubRepo = "https://github.com/L3pu5/SimpleSternia";
+
+SimpleSternia.Init = function ()
+    SimpleSternia.CleanUp();
+    SimpleSternia.CreateAllSkillsets();
+    if not SimpleSternia.Config.Quiet then 
+        echo("SimpleSternia v" ..SimpleSternia.MetaData.Version.." by "..SimpleSternia.MetaData.Credits.. " is initialised. Thank you for using SimpleSternia.\n");
+        echo("For all questions, queries, and concerns, please contact " ..  SimpleSternia.MetaData.Contact .. " or see " .. SimpleSternia.MetaData.GithubRepo.."\n");
+    end
+end
+
+SimpleSternia.CleanUp = function ()
+    if SimpleSternia.TempTriggers then
+        for tempTrigger, bool in pairs (SimpleSternia.TempTriggers) do
+            killTrigger(tempTrigger)
+        end
+    end
+    SimpleSternia.TempTriggers = {};
+end
 
 --Config
 SimpleSternia.Config = {};
+    --Do not show messages from SimpleSternia on startup, etc
+    SimpleSternia.Config.Quiet = false;
     --Show First Person
     SimpleSternia.Config.FirstPerson = true;
     --Show Second Person
@@ -25,12 +51,14 @@ SimpleSternia.Config = {};
     -- ATTACKER USES ABILITY on VICTIM
     -- ATTACKER USES SKILLSET:ABILITY on VICTIM
     -- ATTACKER ABILITY(SKILLET) -> VICTIM
-    SimpleSternia.Config.DefaultFormat =      "ATTACKER USES ABILITY on VICTIM.";
-    SimpleSternia.Config.DefaultVerboseFormat = "ATTACKER USES SKILLSET:ABILITY on VICTIM.";
-    SimpleSternia.Config.DefaultNoVictimFormat =   "ATTACKER USES ABILITY.";
+    -- A NEWLINE is not appended by SimpleSternia. You must append this yourself.
+    SimpleSternia.Config.DefaultFormat =      "ATTACKER USES ABILITY on VICTIM.\n";
+    SimpleSternia.Config.DefaultVerboseFormat = "ATTACKER USES SKILLSET:ABILITY on VICTIM.\n";
+    SimpleSternia.Config.DefaultNoVictimFormat =   "ATTACKER USES ABILITY.\n";
     -- CHANGE THESE FOR CUSTOMISATION
     SimpleSternia.Config.Format = SimpleSternia.Config.DefaultFormat;
     SimpleSternia.Config.NoVictimFormat = SimpleSternia.Config.DefaultNoVictimFormat;
+
 
 --Abilities
 SimpleSternia.Abilities = {};
@@ -45,6 +73,17 @@ SimpleSternia.CreateAllSkillsets = function()
         SimpleSternia.CreateSkillsetAbilities(skillset, skills);
     end
 end
+
+SimpleSternia.CreateUpdateAlias = function()
+end
+
+SimpleSternia.UpdateLines = function() 
+    if not SimpleSternia.Config.Quiet then
+        echo("Fetching Lines from " .. SimpleSternia.MetaData.GithubRepo.. ".\n");
+    end
+    downloadFile(getMudletHomeDir().. "/SimpleSternia/SimpleSterniaLines.lua", )
+end
+
 -- Build all the abilities in the class
 SimpleSternia.CreateSkillsetAbilities = function(skillSet, skills)
     for index, i in ipairs(skills) do
@@ -67,8 +106,6 @@ SimpleSternia.CreateAbility = function(skillSet, abilityName, firstPerson, secon
 end
 
 SimpleSternia.ProcessTrigger = function(skillSet, abilityName, matches)
-    echo("FIRED");
-    echo(abilityName);
     if SimpleSternia.Config.HideFlavourText == true then
         deleteLine()
     end

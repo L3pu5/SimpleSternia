@@ -59,7 +59,7 @@ SimpleSternia.Lines = {
             [[^Sweeping \w+ axe through the air, (?<ATTACKER>\w+) sends it whooshing straight into (?<VICTIM>\w+) (?<LIMB>.+), leaving it (?<WOUNDS>.+)\.$]],
             nil,
         },
-        {"Slitthroat"
+        {"Slitthroat",
             [[^(?<VICTIM>\w+) hack into (?<ATTACKER>\w+)'s neck and blood fountains out in a thick spray\.$]],
             [[^(?<VICTIM>\w+) hacks into (?<ATTACKER>\w+) neck and blood fountains out in a thick spray\.$]],
             nil,
@@ -79,12 +79,12 @@ SimpleSternia.Lines = {
             [[^(?<ATTACKER>\w+) turns .+ to the side and slams it into your head, leaving (?<VICTIM>\w+) stunned and confused\.$]],
             nil,
         },
-        {"Legtendon"
+        {"Legtendon",
             [[^(?<ATTACKER>\w+) hack the tendon above (?<VICTIM>\w+)'s (?<LIMB>left|right) heel, making \w+ scream as it is completely severed\.$]],
             [[^(?<ATTACKER>\w+) hacks the tendon above (?<VICTIM>\w+) (?<LIMB>left|right) heel and you scream in agony as it is completely severed\.$]],
             nil,
         },
-        {"Amputatearm"
+        {"Amputatearm",
             [[^(?<VICTIM>\w+)'s (?<LIMB>left arm|right arm) is completely cut through, flying through the air as blood splurts out in a fountain at the severed shoulder joint\.$]],
             [[^(?<ATTACKER>\w+) cuts completely through (?<VICTIM>\w+) (?<LIMB>left arm|right arm), which flies through the air as blood splurts out in a fountain at the severed shoulder joint\.$]],
             nil,

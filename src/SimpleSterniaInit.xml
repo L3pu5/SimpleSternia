@@ -40,12 +40,16 @@ SimpleSternia.Config = {};
     SimpleSternia.Config.DefaultFormat =      "ATTACKER USES ABILITY on VICTIM.\n";
     SimpleSternia.Config.DefaultVerboseFormat = "ATTACKER USES SKILLSET:ABILITY on VICTIM.\n";
     SimpleSternia.Config.DefaultNoVictimFormat =   "ATTACKER USES ABILITY.\n";
+    SimpleSternia.Config.DefaultNoAttackerFormat = "VICTIM VIS hit by ABILITY.\n";
+    
     
         --Format for the Lines to be displayed, see below:
         --Single Targetted Ability
     SimpleSternia.Config.Format = SimpleSternia.Config.DefaultFormat;
         --No Target of used ability
     SimpleSternia.Config.NoVictimFormat = SimpleSternia.Config.DefaultNoVictimFormat;</script>
+        --No Attacker specified in line
+    SimpleSternia.Config.NoAttackerFormat = SimpleSternia.Config.DefaultNoAttackerFormat;
 			<eventHandlerList />
 		</Script>
 	</ScriptPackage>

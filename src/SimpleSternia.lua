@@ -62,11 +62,11 @@ SimpleSternia.Config = {};
     SimpleSternia.Config.DefaultFormat =      "ATTACKER USES ABILITY on VICTIM.\n";
     SimpleSternia.Config.DefaultVerboseFormat = "ATTACKER USES SKILLSET:ABILITY on VICTIM.\n";
     SimpleSternia.Config.DefaultNoVictimFormat =   "ATTACKER USES ABILITY.\n";
-    SimpleSternia.Config.DefaultNoAttckerFormat = "VICTIM VIS hit by ABILITY.\n";
+    SimpleSternia.Config.DefaultNoAttackerFormat = "VICTIM VIS hit by ABILITY.\n";
     -- CHANGE THESE FOR CUSTOMISATION
     SimpleSternia.Config.Format = SimpleSternia.Config.DefaultFormat;
     SimpleSternia.Config.NoVictimFormat = SimpleSternia.Config.DefaultNoVictimFormat;
-    SimpleSternia.Config.NoAttackerFormat = SimpleSternia.Config.DefaultNoAttckerFormat;
+    SimpleSternia.Config.NoAttackerFormat = SimpleSternia.Config.DefaultNoAttackerFormat;
 
 
 --Abilities

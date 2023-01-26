@@ -136,7 +136,7 @@ SimpleSternia.BakeAbility = function(skillsetName, abilityName, matches)
     -- Use the NOVICTIM Template
     if matches.VICTIM then
         template = SimpleSternia.Config.Format;
-        if matches.VICTIM == "you" or matches.VICTIM == "You" or matches.VICTIM == "Your" or matches.VICTIM == "your" then
+        if matches.VICTIM == "you" or matches.VICTIM == "You" or matches.VICTIM == "Your" or matches.VICTIM == "your" or matches.VICTIM == "Yours" or matches.VICTIM == "yours" then
             template = template:gsub("VICTIM", "you");
             template = template:gsub("VIS", "are")
         else

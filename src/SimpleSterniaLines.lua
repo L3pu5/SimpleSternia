@@ -104,14 +104,85 @@ SimpleSternia.Lines = {
         -- Moon
     -- Cosmic
     ["Cosmic"] = {
-      {"Cosmicfire", 
+        {"Cosmicfire", 
             [[^(?<ATTACKER>\w+) allow an infinitesimally small mote of cosmic fire to manifest and direct it at (?<VICTIM>\w+). Cosmic fire blasts forth, dissolving \w+ flesh in a sparkling current of energy\.$]],
             [[^(?<ATTACKER>\w+) raises a palm which glows with a tiny pinpoint of light. The light turns into a sparkling current of energy that slams into (?<VICTIM>\w+), dissolving your flesh\.$]],
             [[^(?<ATTACKER>\w+) raises a palm which glows with a tiny pinpoint of light. The light turns into a sparkling current of energy that slams into (?<VICTIM>\w+), dissolving (his|her|their) flesh\.$]],
-      },
+        },
+        {"Sleep",
+            [[^(?<ATTACKER>\w+) tug at the cosmic fabric that binds (?<VICTIM>\w+), in an effort to send \w+ to sleep\.$]],
+            [[^(?<ATTACKER>\w+) reaches over and gently squeezes your shoulder. (?<VICTIM>\w+) find yourself rapidly becoming sleepier and sleepier.$]],
+            nil,
+        },
+        {"Fear",
+            [[^Becoming one with the cosmos, (?<ATTACKER>\w+) allow the awesome power of the cosmos to be reflected through your eyes\.$]],
+            nil,
+            [[^(?<ATTACKER>\w+) shuts \w+ eyes for several moments, then opens them and reveals glowing orbs of static energy rolling in \w+ eyesockets\.$]],
+        },
+        {"Web",
+            [[^(?<ATTACKER>\w+) grasp a handful of cosmic threads and will them into existence, then release them onto (?<VICTIM>\w+) as a mass of sticky webs\.$]],
+            [[^Sticky strands of webbing spray out from (?<ATTACKER>\w+) to cover (?<VICTIM>\w+)\.$]],
+            nil,
+        },
     },
+        --Harmonics
+    ["Harmonics"] = {
+        {"Malefactgem",
+            [[^(?<ATTACKER>\w+) fold the charged crystals together, forming a malefactgem. You smash it at your feet and red and black smoke roils about you\.$]],
+            [[^Tendrils of red and black smoke wrap around (?<VICTIM>\w+), covering your skin in a sticky film\.$]],
+            [[^(?<ATTACKER>\w+) smashes a chunk of dark rock at his feet and red and black smoke roils about \w+\.$]],
+        },
+        {"Shockstone",
+            [[^(?<ATTACKER>\w+) fold the charged crystals together, forming a shockstone. You throw it at (?<VICTIM>\w+), and it shatters, releasing a flurry of brilliant sapphire rays.$]],
+            [[^(?<ATTACKER>\w+) tosses a delicate blue sphere into the air at (?<VICTIM>\w+), which shatters in a flurry of brilliant sapphire rays.$]],
+            nil,
+        },
+    },
+
     -- Rituals
-    
+        --Aeonics
+    ["Aeonics"] = {
+        {"Aeon",
+            [[^Locking your eyes with (?<VICTIM>\w+), (?<ATTACKER>\w+) click your tongue against the roof of your mouth, synchronising the rhythm with \w+'s inner clock. You throw the rhythm off-beat and watch as \w+ becomes lost in an aeonic field\.$]],
+            [[^Locking \w+ eyes with (?<VICTIM>\w+), (?<ATTACKER>\w+) clicks his tongue against the roof of \w+ mouth. As the rhythm of the clicks slows down, reality seems to stop and start in sudden jerks\.$]],
+            nil,
+        },
+        {"Inisght",
+            [[(?<ATTACKER>\w+) close your eyes and focus on the inner turmoil of your own mind, forcing your disordered thoughts into cohesion. Basking in the symmetry of that formation, you find you have far greater insight into your own being than before\.$]],
+            nil,
+            [[^(?<ATTACKER>\w+) closes \w+ eyes and frowns briefly at some secret thought, before \w+ brow smooths out and \w+ appears at peace\.$]],
+        },
+        {"Timewarp",
+            [[^With several languid gestures, (?<ATTACKER>\w+) twist the temporal field that surrounds (?<VICTIM>\w+), causing time itself to warp around \w+\.$]],
+            [[^(?<ATTACKER>\w+) languidly gestures at (?<VICTIM>\w+) and the world tilts as time itself warps\.$]],
+            nil,
+        },
+        {"Singularity",
+            [[^(?<ATTACKER>\w+) focus inward, compressing time connecting to (?<VICTIM>\w+) into a single point, and let it float out in front of you\.$]],
+            [[^(?<VICTIM>\w+) feel something tugging on you as (?<ATTACKER>\w+) releases something floating in front of \w+\.$]],
+            nil,
+        },
+        {"Oracle",
+            [[^(?<ATTACKER>\w+) gaze deep into the eyes of (?<VICTIM>\w+), revealing the darkest possible timelines open to \w+\.$]],
+            [[^(?<ATTACKER>\w+) gazes deep into (?<VICTIM>\w+) eyes, revealing oracular visions of the darkest possible of futures\.$]],
+            nil,
+        },
+        {"Chronicloop",
+            [[^(?<ATTACKER>\w+) look straight at (?<VICTIM>\w+) and wave your arms in a circular motion, willing the time surrounding \w+ to loop and spin unto itself\.$]],
+            [[^(?<ATTACKER>\w+) looks straight at (?<VICTIM>\w+) and waves his arms in a circular motion, and you notice time begin to spin around you\.$]],
+            nil
+        },
+        {"PopChronicloop",
+            nil,
+            [[^The time looping around (?<VICTIM>\w+) spins faster and faster before imploding in on you. You find yourself reliving moments that just passed again\.$]],
+            [[^The time looping around (?<VICTIM>\w+) spins faster and faster before imploding in on \w+\.$]],
+        },
+        {"Blink",
+            [[^(?<ATTACKER>\w+) close your eyes in concentration and reach in front of you, trying to find the strand of time that will let you intercept your quarry\.$]],
+            nil,
+            [[^(?<ATTACKER>\w+) closes \w+ eyes in concentration, reaching \w+ hands out and grabbing onto something you cannot see.$]],
+        },
+    },
         -- Sacraments
     ["Sacraments"] = {
         {"Holybeing",
@@ -157,4 +228,13 @@ SimpleSternia.Lines = {
 
     },
         -- Aeonics
+
+    --Org
+    ["Hallifax"] = {
+        {"Cloudberrytea",
+            [[^A rush of icy air leaves (?<ATTACKER>\w+) pores and surrounds (?<VICTIM>\w+) in a frigid cloud, warping time around \w+\w.$]],
+            [[^A rush of icy air leaves (?<ATTACKER>\w+)'s pores and surrounds (?<VICTIM>\w+) in a frigid cloud, warping time around you\.$]],
+            nil,
+        },
+    },
 }

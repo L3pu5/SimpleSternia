@@ -112,6 +112,7 @@ The FIRSTPERSON, SECONDPERSON, and THIRDPERSON lines must be regex and escaped. 
     ATTACKER    (?<ATTACKER>\w+)
     VICTIM      (?<VICTIM>\w+)
     LIMB        (?<LIMB>\w+), (?<LIMB>\w+\s\w+), (?<LIMB>.+)
+    WOUNDS      (?<WOUNDS>\w+), (?<WOUNDS>.+)
 
 All other regex patterns will be ignored.
 

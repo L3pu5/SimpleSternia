@@ -157,7 +157,9 @@ SimpleSternia.BakeAbility = function(skillsetName, abilityName, matches)
     else
         template = template:gsub("AIS", "is")
         template = template:gsub("USES", "uses")
-        template = template:gsub("ATTACKER", matches.ATTACKER);
+        if matches.ATTACKER then
+            template = template:gsub("ATTACKER", matches.ATTACKER);
+        end
     end;
     --ABILITY
     if string.find(template, "ABILITY") then

@@ -47,9 +47,9 @@ SimpleSternia.Config = {};
         --Single Targetted Ability
     SimpleSternia.Config.Format = SimpleSternia.Config.DefaultFormat;
         --No Target of used ability
-    SimpleSternia.Config.NoVictimFormat = SimpleSternia.Config.DefaultNoVictimFormat;</script>
+    SimpleSternia.Config.NoVictimFormat = SimpleSternia.Config.DefaultNoVictimFormat;
         --No Attacker specified in line
-    SimpleSternia.Config.NoAttackerFormat = SimpleSternia.Config.DefaultNoAttackerFormat;
+    SimpleSternia.Config.NoAttackerFormat = SimpleSternia.Config.DefaultNoAttackerFormat;</script>
 			<eventHandlerList />
 		</Script>
 	</ScriptPackage>

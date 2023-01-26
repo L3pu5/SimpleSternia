@@ -115,16 +115,16 @@ SimpleSternia.CreateAbility = function(skillSet, abilityName, firstPerson, secon
 
     if firstPerson ~= nil then
         firstPersonTrigger =    tempRegexTrigger(firstPerson, function() SimpleSternia.ProcessTrigger(skillSet, abilityName, matches) end);
+        SimpleSternia.TempTriggers[firstPersonTrigger] = true; 
     end
     if secondPerson ~= nil then
         secondPersonTrigger =   tempRegexTrigger(secondPerson, function() SimpleSternia.ProcessTrigger(skillSet, abilityName, matches) end);
+        SimpleSternia.TempTriggers[secondPersonTrigger] = true; 
     end
     if thirdPerson ~= nil then
         thirdPersonTrigger =    tempRegexTrigger(thirdPerson, function() SimpleSternia.ProcessTrigger(skillSet, abilityName, matches) end);
+        SimpleSternia.TempTriggers[thirdPersonTrigger] = true; 
     end 
-    SimpleSternia.TempTriggers[firstPersonTrigger] = true; 
-    SimpleSternia.TempTriggers[secondPersonTrigger] = true; 
-    SimpleSternia.TempTriggers[thirdPersonTrigger] = true; 
 end
 
 SimpleSternia.ProcessTrigger = function(skillSet, abilityName, matches)

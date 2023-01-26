@@ -179,6 +179,9 @@ SimpleSternia.BakeAbility = function(skillsetName, abilityName, matches)
     if string.find(template, "SKILLSET") then
       template = template:gsub("SKILLSET", skillsetName);
     end
+    --Capitalise the first letter to avoid awkward grammar issues.
+    template = template:gsub("^%l", string.upper);
+    
     if SimpleSternia.Config.HideFlavourText == true and SimpleSternia.Config.FeedTriggers == false then
         replaceLine(template);
     elseif SimpleSternia.Config.HideFlavourText == true and SimpleSternia.Config.FeedTriggers == true then

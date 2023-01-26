@@ -135,7 +135,12 @@ SimpleSternia.BakeAbility = function(skillsetName, abilityName, matches)
     template = "";
     -- Use the NOVICTIM Template
     if matches.VICTIM then
-        template = SimpleSternia.Config.Format;
+        --is there an atatcker?
+        if matches.ATTACKER then
+            template = SimpleSternia.Config.Format;
+        else
+            template = SimpleSternia.Config.NoAttackerFormat;
+        end
         if matches.VICTIM == "you" or matches.VICTIM == "You" or matches.VICTIM == "Your" or matches.VICTIM == "your" or matches.VICTIM == "Yours" or matches.VICTIM == "yours" then
             template = template:gsub("VICTIM", "you");
             template = template:gsub("VIS", "are")
@@ -144,11 +149,7 @@ SimpleSternia.BakeAbility = function(skillsetName, abilityName, matches)
             template = template:gsub("VIS", "is")
         end
     else
-        if matches.ATTACKER then
-            template = SimpleSternia.Config.NoVictimFormat;
-        else
-            template = SimpleSternia.Config.NoAttackerFormat;
-        end
+        template = SimpleSternia.Config.NoAttackerFormat;
     end
     if matches.ATTACKER == "You" or matches.ATTACKER == "you" or matches.ATTACKER == "Your" or matches.ATTACKER == "your" then
         template = template:gsub("USES", "use")

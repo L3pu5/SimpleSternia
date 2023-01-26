@@ -139,7 +139,7 @@ SimpleSternia.BakeAbility = function(skillsetName, abilityName, matches)
         if matches.VICTIM == "you" or matches.VICTIM == "You" or matches.VICTIM == "Your" or matches.VICTIM == "your" then
             template = template:gsub("VICTIM", "you");
             template = template:gsub("VIS", "are")
-        elses
+        else
             template = template:gsub("VICTIM", matches.VICTIM);
             template = template:gsub("VIS", "is")
         end

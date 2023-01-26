@@ -143,7 +143,7 @@ SimpleSternia.BakeAbility = function(skillsetName, abilityName, matches)
         end
 
         if matches.VICTIM == "you" or matches.VICTIM == "You" or matches.VICTIM == "Your" or matches.VICTIM == "your" or matches.VICTIM == "Yours" or matches.VICTIM == "yours" then
-            template = template:gsub("VICTIM", "You");
+            template = template:gsub("VICTIM", "you"); --Assume 'you' instead of 'You' as a victim.
             template = template:gsub("VIS", "are")
         else
             template = template:gsub("VICTIM", matches.VICTIM);
@@ -153,9 +153,9 @@ SimpleSternia.BakeAbility = function(skillsetName, abilityName, matches)
         template = SimpleSternia.Config.NoVictimFormat;
     end
     if matches.ATTACKER == "You" or matches.ATTACKER == "you" or matches.ATTACKER == "Your" or matches.ATTACKER == "your" then
-        template = template:gsub("USES", "use")
-        template = template:gsub("AIS", "are")
-        template = template:gsub("ATTACKER", "You");
+        template = template:gsub("USES", "use"); 
+        template = template:gsub("AIS", "are");
+        template = template:gsub("ATTACKER", "You"); --Assume 'You' instead of 'you' as an attacker.
     else
         template = template:gsub("AIS", "is")
         template = template:gsub("USES", "uses")

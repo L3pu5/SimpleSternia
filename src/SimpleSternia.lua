@@ -44,9 +44,13 @@ SimpleSternia.Config = {};
     -- Note config uses the following context words:
     -- 'ATTACKER'   := The name of the attack user or 'you'
     -- 'USES'       := uses/use as gramatically appropriate
+    -- 'VIS'        := is/are as defined by grammar for the victim.
+    -- 'AIS'        := is/are as defined by grammar for the attacker.
     -- 'ABILITY'    := The name of the ability used.
     -- 'SKILLSET'   := The skillset the ability belongs to.
     -- 'VICTIM'     := The recipient of the attack or 'you'.
+    -- 'LIMB'       := The limb struck by a knighthood attack or ""
+    -- 'WOUNDS'     := The wounds when struck by a knighthood attack or ""
     -- All other elements are echo'd literally
     -- this allows you to control colour with <green>ATTACKER<yellow>  to make attacker green and the following yellow.
     -- At this time, SimpleSternia does not intend to gag melds.
@@ -58,9 +62,11 @@ SimpleSternia.Config = {};
     SimpleSternia.Config.DefaultFormat =      "ATTACKER USES ABILITY on VICTIM.\n";
     SimpleSternia.Config.DefaultVerboseFormat = "ATTACKER USES SKILLSET:ABILITY on VICTIM.\n";
     SimpleSternia.Config.DefaultNoVictimFormat =   "ATTACKER USES ABILITY.\n";
+    SimpleSternia.Config.DefaultNoAttckerFormat = "VICTIM VIS hit by ABILITY.\n";
     -- CHANGE THESE FOR CUSTOMISATION
     SimpleSternia.Config.Format = SimpleSternia.Config.DefaultFormat;
     SimpleSternia.Config.NoVictimFormat = SimpleSternia.Config.DefaultNoVictimFormat;
+    SimpleSternia.Config.NoAttackerFormat = SimpleSternia.Config.DefaultNoAttckerFormat;
 
 
 --Abilities
@@ -131,13 +137,24 @@ SimpleSternia.BakeAbility = function(skillsetName, abilityName, matches)
     if matches.VICTIM then
         template = SimpleSternia.Config.Format;
         template = template:gsub("VICTIM", matches.VICTIM);
+        if matches.VICTIM == "you" or matches.VICTIM == "You" or matches.VICTIM == "Your" or matches.VICTIM == "your" then
+            template = template:gsub("VIS", "are")
+        else
+            template = template:gsub("VIS", "is")
+        end
     else
-        template = SimpleSternia.Config.NoVictimFormat;
+        if matches.ATTACKER then
+            template = SimpleSternia.Config.NoVictimFormat;
+        else
+            template = SimpleSternia.Config.NoAttackerFormat;
+        end
     end
-    if matches.ATTACKER == "You" or matches.ATTACKER == "you" then
+    if matches.ATTACKER == "You" or matches.ATTACKER == "you" or matches.ATTACKER == "Your" or matches.ATTACKER == "your" then
         template = template:gsub("USES", "use")
+        template = template:gsub("AIS", "are")
         template = template:gsub("ATTACKER", "You");
     else
+        template = template:gsub("AIS", "is")
         template = template:gsub("USES", "uses")
         template = template:gsub("ATTACKER", matches.ATTACKER);
     end;
